@@ -12,6 +12,7 @@
 /modules.xml
 /workspace.xml
 framework.iml
+vcs.xml
 
 # Compiled class file
 *.class
