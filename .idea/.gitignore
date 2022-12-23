@@ -11,7 +11,8 @@
 /misc.xml
 /modules.xml
 /workspace.xml
-/framework.impl
+framework.iml
+
 # Compiled class file
 *.class
 
