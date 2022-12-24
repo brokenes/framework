@@ -1,5 +1,8 @@
 package org.github.common;
 
+import org.github.common.exception.ErrorCode;
+import org.github.common.exception.IError;
+
 import java.io.Serializable;
 
 public class Result<T> implements  Message<String>, Serializable {
@@ -41,6 +44,14 @@ public class Result<T> implements  Message<String>, Serializable {
     public static Result fail(){
         return fail(ErrorMessage.DEFAULT_ERROR_CODE,ErrorMessage.DEFAULT_ERROR_MESSAGE,null);
     }
+
+
+    public static <T> Result<T> fail(IError error){
+        String code = error.code();
+        String message = error.message();
+        return fail(code, message);
+    }
+
 
     public static Result fail(final String code, final String message) {
         return fail(code, message, null);
@@ -100,7 +111,7 @@ public class Result<T> implements  Message<String>, Serializable {
 
     public static void main(String[] args) {
         Result errorResult = fail("401","错误","不支持get方法请求");
-        Result errorResult2 = fail();
+        Result errorResult2 = fail(ErrorCode.AUTH);
         System.out.println(errorResult.errorDetail);
         System.out.println(errorResult2.message);
     }

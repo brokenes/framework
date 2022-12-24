@@ -1,55 +1,51 @@
 package org.github.common.exception;
 
-import org.github.common.IEnum;
-
 /**
  * 错误消息码
  */
-public enum ErrorCode implements IEnum<String> {
+public enum ErrorCode implements IError<String> {
     /**
      * 认证错误编码信息
      */
-    AUTH("认证异常","403"),
+    AUTH("403","认证异常"),
 
-    BUSINESS("业务异常","5000"),
+    BUSINESS("501","业务异常"),
 
-    CRYPTO("加密解密或加签验证异常","9005"),
+    CRYPTO("9005","加密解密或加签验证异常"),
 
-    NETWORK("网络异常","9103"),
+    NETWORK("9103","网络异常"),
 
-    PERMISSION("没有权限","5100"),
+    PERMISSION("401","没有权限"),
 
-    SYSTEM("系统错误","9002"),
+    SYSTEM("500","系统错误"),
 
-    VIOLATION("验证异常","9001"),
+    VIOLATION("9001","验证异常"),
 
-    PERSISTANCE("持久化异常","9003"),
+    PERSISTANCE("9003","持久化异常"),
 
-    TIMEOUT("服务超时异常","9999"),
-
-
+    TIMEOUT("9999","服务超时异常"),
 
     ;
-    String named;
-    String value;
 
-    ErrorCode(String name,String value) {
-        this.named = name;
-        this.value = value;
+    String code;
+    String message;
+
+
+    ErrorCode(String code,String message) {
+        this.code = code;
+        this.message = message;
     }
 
 
     @Override
-    public String named() {
-        return named;
+    public String code() {
+        return code;
     }
 
     @Override
-    public String value() {
-        return value;
+    public String message() {
+        return message;
     }
 
-    public static final String BASE_LAYER_ERROR_CODE ="00009999";
 
-    public static final String BASE_LAYER_APP_CODE = "0000";
 }

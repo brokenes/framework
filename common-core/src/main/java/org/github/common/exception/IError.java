@@ -4,7 +4,7 @@ package org.github.common.exception;
 import org.github.common.IEnum;
 import org.github.common.i18n.I18N;
 
-public interface IError extends IEnum<String> {
+public interface IError<T> extends IEnum<String> {
 
     /**
      * 业务错误码
@@ -12,18 +12,18 @@ public interface IError extends IEnum<String> {
     String code();
 
     /**
-     * 业务错误码
+     * 业务错误描述
      */
     String message();
 
     @Override
     default String value() {
-        return code();
+        return message();
     }
 
     @Override
     default String named() {
-        return message();
+        return code();
     }
 
     /**
