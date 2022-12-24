@@ -16,6 +16,16 @@ import java.io.StringWriter;
  *     throw Ex.violation(msg);
  */
 public class Ex {
+
+    /**
+     * 业务异常
+     */
+    public static BusinessException business(IError<String> error,Object...params) {
+        String code = error.code();
+        String msg = error.message();
+        return new BusinessException(code,buildMessage(msg,params));
+    }
+
     /**
      * 业务异常
      */
@@ -112,10 +122,17 @@ public class Ex {
      * 构建格化式消息
      */
     private static String buildMessage(String msg,Object...params) {
+        System.out.println("参数长度:"+params.length);
         if (params == null || params.length <= 0) {
             return msg;
         }
         return String.format(msg,params);
     }
 
+    public static void main(String[] args) {
+        if(true){
+            throw  Ex.business(ErrorCode.AUTH,"xxx用户");
+        }
+
+    }
 }

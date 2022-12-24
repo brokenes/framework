@@ -7,7 +7,7 @@ public enum ErrorCode implements IError<String> {
     /**
      * 认证错误编码信息
      */
-    AUTH("403","认证异常"),
+    AUTH("403","%s 认证异常"),
 
     BUSINESS("501","业务异常"),
 
