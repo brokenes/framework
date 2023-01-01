@@ -1,5 +1,6 @@
 package org.github.framework.lock.aop;
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -28,6 +29,7 @@ import java.lang.reflect.Method;
 
 @Aspect
 @Order(LockConstants.ASPECT_ORDER)
+@Slf4j
 public class DistributionLockAspect extends ApplicationObjectSupport {
 
     @Autowired
@@ -94,9 +96,15 @@ public class DistributionLockAspect extends ApplicationObjectSupport {
                 }
             }
 
+            String lockId = locking.id();
+            if(CustomStringUtils.isBlank(lockId)){
+                throw new LockException(String.format("不能创建锁，获取不到要指定参数为'%s'的锁ID值","lockId"));
+            }
+            if(lockId.contains("#")){
+                lockId       = parser.parseExpression(locking.id()).getValue(context,String.class);
+            }
             // 执行spel，获取 lock id 的值
-            String lockId       = parser.parseExpression(locking.id()).getValue(context,String.class);
-            System.out.println("**************lockId****************" + lockId);
+            log.info("distribution key is {}",lockId);
             if (CustomStringUtils.isBlank(lockId)) {
                 throw new LockException(String.format("不能创建锁，获取不到要指定参数为'%s'的锁ID值",locking.id()));
             }
