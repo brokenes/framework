@@ -30,8 +30,8 @@ public class SensitiveTest {
      */
     @Test
     public void commonSensitiveTest() {
-        final String originalStr = "User{username='脱敏君', idCard='123456190001011234', password='1234567', email='12345@qq.com', phone='18888888888'}";
-        final String sensitiveStr = "User{username='脱*君', idCard='123456**********34', password='null', email='123**@qq.com', phone='188****8888'}";
+        final String originalStr = "User{username='诸葛亮', idCard='123456190001011234', password='1234567', email='12345@qq.com', phone='18888888888'}";
+        final String sensitiveStr = "User{username='诸*亮', idCard='123456**********34', password='null', email='123**@qq.com', phone='188****8888'}";
 
         final User user = DataPrepareTest.buildUser();
         Assert.assertEquals(originalStr, user.toString());

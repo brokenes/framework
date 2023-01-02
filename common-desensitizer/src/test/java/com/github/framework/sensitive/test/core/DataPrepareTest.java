@@ -72,7 +72,7 @@ public final class DataPrepareTest {
      */
     public static User buildUser() {
         User user = new User();
-        user.setUsername("脱敏君");
+        user.setUsername("诸葛亮");
         user.setPassword("1234567");
         user.setEmail("12345@qq.com");
         user.setIdCard("123456190001011234");
@@ -87,7 +87,7 @@ public final class DataPrepareTest {
      */
     public static SystemBuiltInAt buildSystemBuiltInAt() {
         SystemBuiltInAt systemBuiltInAt = new SystemBuiltInAt();
-        systemBuiltInAt.setName("脱敏君");
+        systemBuiltInAt.setName("诸葛亮");
         systemBuiltInAt.setPassword("1234567");
         systemBuiltInAt.setEmail("12345@qq.com");
         systemBuiltInAt.setCardId("123456190001011234");

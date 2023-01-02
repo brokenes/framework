@@ -17,8 +17,8 @@ public class SystemBuiltInTest {
      */
     @Test
     public void sensitiveTest() {
-        final String originalStr = "SystemBuiltInAt{phone='18888888888', password='1234567', name='脱敏君', email='12345@qq.com', cardId='123456190001011234'}";
-        final String sensitiveStr = "SystemBuiltInAt{phone='188****8888', password='null', name='脱*君', email='123**@qq.com', cardId='123456**********34'}";
+        final String originalStr = "SystemBuiltInAt{phone='18888888888', password='1234567', name='诸葛亮', email='12345@qq.com', cardId='123456190001011234'}";
+        final String sensitiveStr = "SystemBuiltInAt{phone='188****8888', password='null', name='诸*亮', email='123**@qq.com', cardId='123456**********34'}";
 
         final SystemBuiltInAt systemBuiltInAt = DataPrepareTest.buildSystemBuiltInAt();
         Assert.assertEquals(originalStr, systemBuiltInAt.toString());
@@ -33,8 +33,8 @@ public class SystemBuiltInTest {
      */
     @Test
     public void sensitiveEntryTest() {
-        final String originalStr = "SystemBuiltInAtEntry{entry=SystemBuiltInAt{phone='18888888888', password='1234567', name='脱敏君', email='12345@qq.com', cardId='123456190001011234'}}";
-        final String sensitiveStr = "SystemBuiltInAtEntry{entry=SystemBuiltInAt{phone='188****8888', password='null', name='脱*君', email='123**@qq.com', cardId='123456**********34'}}";
+        final String originalStr = "SystemBuiltInAtEntry{entry=SystemBuiltInAt{phone='18888888888', password='1234567', name='诸葛亮', email='12345@qq.com', cardId='123456190001011234'}}";
+        final String sensitiveStr = "SystemBuiltInAtEntry{entry=SystemBuiltInAt{phone='188****8888', password='null', name='诸*亮', email='123**@qq.com', cardId='123456**********34'}}";
 
         final SystemBuiltInAtEntry entry = DataPrepareTest.buildSystemBuiltInAtEntry();
         Assert.assertEquals(originalStr, entry.toString());
@@ -50,8 +50,8 @@ public class SystemBuiltInTest {
      */
     @Test
     public void sensitiveJsonTest() {
-        final String originalStr = "SystemBuiltInAt{phone='18888888888', password='1234567', name='脱敏君', email='12345@qq.com', cardId='123456190001011234'}";
-        final String sensitiveJson = "{\"cardId\":\"123456**********34\",\"email\":\"123**@qq.com\",\"name\":\"脱*君\",\"phone\":\"188****8888\"}";
+        final String originalStr = "SystemBuiltInAt{phone='18888888888', password='1234567', name='诸葛亮', email='12345@qq.com', cardId='123456190001011234'}";
+        final String sensitiveJson = "{\"cardId\":\"123456**********34\",\"email\":\"123**@qq.com\",\"name\":\"诸*亮\",\"phone\":\"188****8888\"}";
 
         final SystemBuiltInAt systemBuiltInAt = DataPrepareTest.buildSystemBuiltInAt();
         Assert.assertEquals(sensitiveJson, SensitiveUtils.desJson(systemBuiltInAt));
@@ -64,8 +64,8 @@ public class SystemBuiltInTest {
      */
     @Test
     public void sensitiveEntryJsonTest() {
-        final String originalStr = "SystemBuiltInAtEntry{entry=SystemBuiltInAt{phone='18888888888', password='1234567', name='脱敏君', email='12345@qq.com', cardId='123456190001011234'}}";
-        final String sensitiveJson = "{\"entry\":{\"cardId\":\"123456**********34\",\"email\":\"123**@qq.com\",\"name\":\"脱*君\",\"phone\":\"188****8888\"}}";
+        final String originalStr = "SystemBuiltInAtEntry{entry=SystemBuiltInAt{phone='18888888888', password='1234567', name='诸葛亮', email='12345@qq.com', cardId='123456190001011234'}}";
+        final String sensitiveJson = "{\"entry\":{\"cardId\":\"123456**********34\",\"email\":\"123**@qq.com\",\"name\":\"诸*亮\",\"phone\":\"188****8888\"}}";
 
         final SystemBuiltInAtEntry entry = DataPrepareTest.buildSystemBuiltInAtEntry();
 
