@@ -104,7 +104,7 @@ public class DistributionLockAspect extends ApplicationObjectSupport {
                 lockId       = parser.parseExpression(locking.id()).getValue(context,String.class);
             }
             // 执行spel，获取 lock id 的值
-            log.info("distribution key is {}",lockId);
+            log.info("****************分布式lockId:{}******************",lockId);
             if (CustomStringUtils.isBlank(lockId)) {
                 throw new LockException(String.format("不能创建锁，获取不到要指定参数为'%s'的锁ID值",locking.id()));
             }

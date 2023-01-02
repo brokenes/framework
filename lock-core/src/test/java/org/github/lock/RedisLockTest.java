@@ -2,6 +2,7 @@
 package org.github.lock;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.github.framework.lock.DistributionLock;
 import org.github.framework.lock.LockManager;
 import org.github.lock.service.BaseRLockService;
@@ -13,7 +14,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 
 
-
+@Slf4j
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = {LockTestApplication.class},properties = {"lock.redis.servers=redis://127.0.0.1:6379"})
 public class RedisLockTest {
@@ -27,7 +28,7 @@ public class RedisLockTest {
     @Test
     public void testBase() {
 
-        baseRLockService.simpleLock("ddddddddd");
+        baseRLockService.simpleLock("hello world");
     }
 
     @Test
@@ -35,6 +36,7 @@ public class RedisLockTest {
 //        LockInfo lockInfo = SimpleLockInfo.of()
         try( DistributionLock lock = lockManager.createLock("WR","10001")) {
             lock.lock();
+            log.info("***************");
             System.out.println("I 'm get the lock ");
         }
     }
