@@ -4,9 +4,9 @@ import org.github.framework.lock.LockManager;
 import org.github.framework.lock.annotation.Locking;
 import org.github.framework.lock.enums.LockProviderType;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class LockDemoService {
 
     @Autowired

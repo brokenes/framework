@@ -5,13 +5,13 @@ import org.github.framework.lock.LockManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 
 
-@Service
+@Component
 public class Lock2ServiceImpl {
 
     private Logger logger = LoggerFactory.getLogger(Lock2ServiceImpl.class);

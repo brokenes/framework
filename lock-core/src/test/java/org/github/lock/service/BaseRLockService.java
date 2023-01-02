@@ -5,12 +5,12 @@ package org.github.lock.service;
 import org.github.framework.lock.annotation.Locking;
 import org.github.framework.lock.enums.LockProviderType;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 
-@Service
+@Component
 public class BaseRLockService {
     @Autowired
     LockDemoService lockDemoService;
