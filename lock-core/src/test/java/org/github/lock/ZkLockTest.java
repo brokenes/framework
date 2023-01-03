@@ -5,6 +5,7 @@ import org.apache.commons.lang3.RandomUtils;
 import org.github.framework.lock.DistributionLock;
 import org.github.framework.lock.LockManager;
 import org.github.framework.lock.exception.LockException;
+import org.github.lock.service.Lock1ServiceImpl;
 import org.github.lock.service.LockDemoService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,8 +31,8 @@ public class ZkLockTest {
     @Autowired
     LockDemoService lockDemoService;
 
-//    @Autowired
-//    Lock1ServiceImpl lock1Service;
+    @Autowired
+    Lock1ServiceImpl lock1Service;
 
     @Test
     public void testLock() {
@@ -44,7 +45,7 @@ public class ZkLockTest {
 
     @Test
     public void testNest() {
-//        lockDemoService.nestInvoke();
+        lockDemoService.nestInvoke();
     }
 
     /**
