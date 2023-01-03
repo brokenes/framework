@@ -28,7 +28,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.util.CollectionUtils;
 
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.github")
 public class LockTestApplication {
 
 

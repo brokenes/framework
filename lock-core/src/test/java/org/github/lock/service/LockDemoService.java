@@ -3,14 +3,13 @@ package org.github.lock.service;
 import org.github.framework.lock.LockManager;
 import org.github.framework.lock.annotation.Locking;
 import org.github.framework.lock.enums.LockProviderType;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class LockDemoService {
 
-    @Autowired
-    BizDemoService bizDemoService;
+//    @Autowired
+//    BizDemoService bizDemoService;
 
     LockManager lockManager;
 
@@ -34,7 +33,7 @@ public class LockDemoService {
     @Locking(id = "'nestInvoke'",module = "hello",waitTime = 10,expiredTime = 5000,provider = LockProviderType.REDIS)
     public void nestInvoke() {
 
-        bizDemoService.nestInvoke(Thread.currentThread().getName());
+//        bizDemoService.nestInvoke(Thread.currentThread().getName());
     }
 
     @Locking(id = "#hello",module = "hello",provider = LockProviderType.REDIS)

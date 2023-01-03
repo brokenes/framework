@@ -16,6 +16,7 @@ import org.github.framework.lock.support.SimpleLockInfo;
 import org.github.framework.lock.DistributionLock;
 import org.github.framework.lock.annotation.Locking;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.expression.BeanFactoryResolver;
 import org.springframework.context.expression.MethodBasedEvaluationContext;
 import org.springframework.context.support.ApplicationObjectSupport;
@@ -30,6 +31,7 @@ import java.lang.reflect.Method;
 @Aspect
 @Order(LockConstants.ASPECT_ORDER)
 @Slf4j
+@EnableAspectJAutoProxy
 public class DistributionLockAspect extends ApplicationObjectSupport {
 
     @Autowired
