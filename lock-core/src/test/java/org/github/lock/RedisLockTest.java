@@ -36,8 +36,7 @@ public class RedisLockTest {
 //        LockInfo lockInfo = SimpleLockInfo.of()
         try( DistributionLock lock = lockManager.createLock("WR","10001")) {
             lock.lock();
-            log.info("***************");
-            System.out.println("I 'm get the lock ");
+            log.info("***************获取分布式锁**************");
         }
     }
 }
