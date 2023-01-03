@@ -12,17 +12,13 @@ import org.github.framework.lock.support.LockManagerImpl;
 import org.github.framework.lock.support.redis.RedisLockProvider;
 import org.github.framework.lock.support.zookeeper.ZookeeperClient;
 import org.github.framework.lock.support.zookeeper.ZookeeperLockProvider;
-import org.github.lock.service.BaseRLockService;
-import org.github.lock.service.BizDemoService;
-import org.github.lock.service.LockDemoService;
+import org.github.lock.service.*;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.ClusterServersConfig;
 import org.redisson.config.Config;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.annotation.Order;
 import org.springframework.util.CollectionUtils;
@@ -83,6 +79,20 @@ public class LockTestApplication {
         return new BizDemoService();
     }
 
+    @Bean
+    public Lock1ServiceImpl lock1ServiceImpl() {
+        return new Lock1ServiceImpl();
+    }
+
+    @Bean
+    public Lock2ServiceImpl lock2ServiceImpl() {
+        return new Lock2ServiceImpl();
+    }
+
+    @Bean
+    public Lock3ServiceImpl lock3ServiceImpl() {
+        return new Lock3ServiceImpl();
+    }
     @Bean
     public BaseRLockService baseRLockService() {
         return new BaseRLockService();
